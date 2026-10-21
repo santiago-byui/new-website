@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1b1b1b">
+    <link rel="stylesheet" href="https://use.typekit.net/zky4qdd.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Santiago Villarroel Lopez — Portfolio</title>
+</head>
+<body>
+    <aside class="sidebar" id="portfolio-sidebar" aria-label="Portfolio navigation">
+        <button class="sidebar-close" type="button" aria-label="Close navigation menu"><span class="close-icon" aria-hidden="true"></span></button>
+        <nav class="side-navigation">
+            <div class="side-group">
+                <p class="side-heading">UX/UI Case Studies</p>
+                <a href="#marbach"><img class="side-icon" src="assets/marbach.svg" alt="">Marbach Road</a>
+                <a href="#wise"><img class="side-icon" src="assets/wise.svg" alt="">WISE Banking</a>
+            </div>
+            <div class="side-group">
+                <p class="side-heading">Design Projects</p>
+                <a href="#type-poster"><img class="side-icon" src="assets/type-poster.svg" alt="">Type Poster</a>
+                <a href="#vinyl-cover"><img class="side-icon" src="assets/vinyl-cover.svg" alt="">Vinyl Cover</a>
+            </div>
+            <div class="side-group">
+                <p class="side-heading">Contact Me</p>
+                <button class="side-copy-email" type="button" aria-label="Copy email address"><img class="side-icon" src="assets/gmail.svg" alt=""> Gmail</button>
+                <a href="https://www.linkedin.com/in/santiago-villarroel-lopez" aria-label="LinkedIn"><img class="side-icon" src="assets/linkedin-sidebar.svg" alt="">LinkedIn</a>
+            </div>
+        </nav>
+    </aside>
+
+    <header class="topbar">
+        <p class="brand">SANTIAGO VILLARROEL LOPEZ</p>
+        <button class="copy-link" type="button" aria-label="Copy page link">
+            <img class="copy-icon" src="assets/copy-link.svg" alt=""> Copy link
+        </button>
+        <button class="menu-icon" type="button" aria-label="Open navigation menu" aria-controls="portfolio-sidebar" aria-expanded="false"><img src="assets/menu-dark.svg" alt=""></button>
+    </header>
+
+    <main class="main-content">
+        <div class="content-inner">
+            <section class="hero" aria-labelledby="page-title">
+                <h1 id="page-title" class="hero-heading">
+                    <span class="hero-heading-intro">WELCOME TO MY</span>
+                    <span class="hero-heading-title">PORTFOLIO.</span>
+                </h1>
+            </section>
+
+            <section class="intro-section" aria-label="About this portfolio">
+                <div class="bio">
+                    <h2>Who Am I?</h2>
+                    <p>I’m Santiago, a Salt Lake City based <strong><em>Graphic Designer.</em></strong></p>
+                </div>
+                <div class="portfolio-intro">
+                    <h2>What Is This?</h2>
+                    <p>This is a showcase of my personal and professional work.</p>
+                </div>
+            </section>
+
+            <section class="gallery-section" aria-label="Selected work">
+                <article class="gallery-panel gallery-panel-wide" id="marbach" aria-label="Marbach Road project">
+                    <video class="gallery-video is-active" autoplay muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Wise Loop animation">
+                        <source src="assets/wise-loop.mp4" type="video/mp4">
+                    </video>
+                    <video class="gallery-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-hidden="true" tabindex="-1">
+                        <source src="assets/wise-loop.mp4" type="video/mp4">
+                    </video>
+                </article>
+                <article class="gallery-panel gallery-panel-narrow" id="wise" aria-label="WISE Banking project">
+                    <video class="gallery-video is-active" autoplay muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Marbach Loop animation">
+                        <source src="assets/marbach-loop.mp4" type="video/mp4">
+                    </video>
+                    <video class="gallery-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-hidden="true" tabindex="-1">
+                        <source src="assets/marbach-loop.mp4" type="video/mp4">
+                    </video>
+                </article>
+                <article class="gallery-panel gallery-panel-narrow" id="vinyl-cover" aria-label="Vinyl Cover project">
+                    <img class="gallery-image" src="assets/vinyl-cover-mockup.png" alt="Vinyl record and sleeve mockup for Body of Soul by Coleman Hawkins">
+                </article>
+                <article class="gallery-panel gallery-panel-wide" id="type-poster" aria-label="Type Poster project">
+                    <img class="gallery-image" src="assets/type-poster-mockup.png" alt="Georgia type poster mockup">
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.querySelector('.copy-link').addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                const button = document.querySelector('.copy-link');
+                button.innerHTML = '<span aria-hidden="true">✓</span> Copied';
+                window.setTimeout(() => {
+                    button.innerHTML = '<img class="copy-icon" src="assets/copy-link.svg" alt=""> Copy link';
+                }, 1600);
+            } catch {
+                window.prompt('Copy this page link:', window.location.href);
+            }
+        });
+    </script>
+
+    <script>
+        const emailButton = document.querySelector('.side-copy-email');
+        const emailButtonContent = emailButton.innerHTML;
+        const emailAddress = 'santiago.villarroel.nbgm@gmail.com';
+
+        emailButton.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(emailAddress);
+                emailButton.innerHTML = '<span aria-hidden="true">✓</span> Copied';
+                window.setTimeout(() => {
+                    emailButton.innerHTML = emailButtonContent;
+                }, 1600);
+            } catch {
+                window.prompt('Copy this email address:', emailAddress);
+            }
+        });
+    </script>
+    <script>
+        const sidebar = document.querySelector('.sidebar');
+        const menuToggle = document.querySelector('.menu-icon');
+        const sidebarClose = document.querySelector('.sidebar-close');
+
+        function closeMenu() {
+            sidebar.classList.remove('is-open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Open navigation menu');
+            menuToggle.focus();
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = sidebar.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+            if (isOpen) sidebarClose.focus();
+        });
+
+        sidebarClose.addEventListener('click', closeMenu);
+        sidebar.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.matchMedia('(max-width: 850px)').matches) closeMenu();
+            });
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && sidebar.classList.contains('is-open')) closeMenu();
+        });
+    </script>
+
+    <script>
+        const galleryPanels = Array.from(document.querySelectorAll('.gallery-panel'));
+        galleryPanels.forEach(panel => {
+            const loopVideos = Array.from(panel.querySelectorAll('.gallery-video'));
+            if (loopVideos.length !== 2) return;
+
+            let activeVideoIndex = 0;
+            let handoffStarted = false;
+            const handoffLead = panel.id === 'wise' ? 0.3 : 0.8;
+            const handoffDuration = panel.id === 'wise' ? 150 : 400;
+
+            function checkForVideoHandoff() {
+                const activeVideo = loopVideos[activeVideoIndex];
+                const timeRemaining = activeVideo.duration - activeVideo.currentTime;
+
+                if (!handoffStarted && Number.isFinite(timeRemaining) && timeRemaining <= handoffLead) {
+                    handoffStarted = true;
+                    const nextVideoIndex = 1 - activeVideoIndex;
+                    const nextVideo = loopVideos[nextVideoIndex];
+                    nextVideo.currentTime = 0;
+                    nextVideo.play().then(() => {
+                        nextVideo.classList.add('is-active');
+                        window.setTimeout(() => {
+                            activeVideo.pause();
+                            activeVideo.currentTime = 0;
+                            activeVideo.classList.remove('is-active');
+                            activeVideoIndex = nextVideoIndex;
+                            handoffStarted = false;
+                        }, handoffDuration);
+                    }).catch(() => {
+                        handoffStarted = false;
+                    });
+                }
+
+                window.requestAnimationFrame(checkForVideoHandoff);
+            }
+
+            window.requestAnimationFrame(checkForVideoHandoff);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
