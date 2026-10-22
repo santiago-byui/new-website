@@ -14,13 +14,13 @@
         <nav class="side-navigation">
             <div class="side-group">
                 <p class="side-heading">UX/UI Case Studies</p>
-                <a href="#marbach"><img class="side-icon" src="assets/marbach.svg" alt="">Marbach Road</a>
+                <a href="https://marbachroadanimalhospital.com" target="_blank" rel="noopener noreferrer"><img class="side-icon" src="assets/marbach.svg" alt="">Marbach Road</a>
                 <a href="#wise"><img class="side-icon" src="assets/wise.svg" alt="">WISE Banking</a>
             </div>
             <div class="side-group">
                 <p class="side-heading">Design Projects</p>
-                <a href="#type-poster"><img class="side-icon" src="assets/type-poster.svg" alt="">Type Poster</a>
-                <a href="#vinyl-cover"><img class="side-icon" src="assets/vinyl-cover.svg" alt="">Vinyl Cover</a>
+                <a href="#type-poster" data-preview="georgia-poster" aria-haspopup="dialog" aria-controls="project-preview"><img class="side-icon" src="assets/type-poster.svg" alt="">Type Poster</a>
+                <a href="#vinyl-cover" data-preview="vinyl-cover" aria-haspopup="dialog" aria-controls="project-preview"><img class="side-icon" src="assets/vinyl-cover.svg" alt="">Vinyl Cover</a>
             </div>
             <div class="side-group">
                 <p class="side-heading">Contact Me</p>
@@ -59,35 +59,46 @@
             </section>
 
             <section class="gallery-section" aria-label="Selected work">
-                <article class="gallery-panel gallery-panel-wide" id="marbach" aria-label="Marbach Road project">
-                    <video class="gallery-video is-active" autoplay muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Wise Loop animation">
+                <article class="gallery-panel gallery-panel-wide" id="wise" aria-label="WISE Banking project">
+                    <video class="gallery-video is-active" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Wise Loop animation" autoplay>
+                        <source src="assets/wise-loop.webm" type="video/webm">
                         <source src="assets/wise-loop.mp4" type="video/mp4">
                     </video>
                     <video class="gallery-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-hidden="true" tabindex="-1">
+                        <source src="assets/wise-loop.webm" type="video/webm">
                         <source src="assets/wise-loop.mp4" type="video/mp4">
                     </video>
                 </article>
-                <article class="gallery-panel gallery-panel-narrow" id="wise" aria-label="WISE Banking project">
-                    <video class="gallery-video is-active" autoplay muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Marbach Loop animation">
+                <a class="gallery-panel gallery-panel-narrow" id="marbach" href="https://marbachroadanimalhospital.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Marbach Road Animal Hospital website">
+                    <video class="gallery-video is-active" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Marbach Loop animation" autoplay>
+                        <source src="assets/marbach-loop.webm" type="video/webm">
                         <source src="assets/marbach-loop.mp4" type="video/mp4">
                     </video>
                     <video class="gallery-video" muted playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-hidden="true" tabindex="-1">
+                        <source src="assets/marbach-loop.webm" type="video/webm">
                         <source src="assets/marbach-loop.mp4" type="video/mp4">
                     </video>
-                </article>
+                </a>
                 <article class="gallery-panel gallery-panel-narrow" id="vinyl-cover" aria-label="Vinyl Cover project">
-                    <video class="gallery-video is-active" autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Vinyl Cover animation">
+                    <video class="gallery-video is-active" muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Vinyl Cover animation" autoplay>
+                        <source src="assets/vinyl-loop.webm" type="video/webm">
                         <source src="assets/vinyl-loop.mp4" type="video/mp4">
                     </video>
+                    <button class="gallery-preview-trigger" type="button" data-preview="vinyl-cover" aria-label="Preview Vinyl Cover" aria-haspopup="dialog" aria-controls="project-preview"></button>
                 </article>
                 <article class="gallery-panel gallery-panel-wide" id="type-poster" aria-label="Type Poster project">
-                    <video class="gallery-video is-active" autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Georgia Loop animation">
+                    <video class="gallery-video is-active" muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback controlslist="nodownload noremoteplayback nofullscreen noplaybackrate" aria-label="Georgia Loop animation" autoplay>
+                        <source src="assets/georgia-loop.webm" type="video/webm">
                         <source src="assets/georgia-loop.mp4" type="video/mp4">
                     </video>
+                <button class="gallery-preview-trigger" type="button" data-preview="georgia-poster" aria-label="Preview Georgia Poster" aria-haspopup="dialog" aria-controls="project-preview"></button>
                 </article>
             </section>
         </div>
     </main>
+    <dialog class="project-preview" id="project-preview" aria-label="Project preview">
+        <img class="preview-image" src="" alt="">
+    </dialog>
 
     <script>
         document.querySelector('.copy-link').addEventListener('click', async () => {
@@ -151,7 +162,7 @@
         });
     </script>
 
-    <script>
+            <script>
         const galleryPanels = Array.from(document.querySelectorAll('.gallery-panel'));
         galleryPanels.forEach(panel => {
             const loopVideos = Array.from(panel.querySelectorAll('.gallery-video'));
@@ -159,8 +170,8 @@
 
             let activeVideoIndex = 0;
             let handoffStarted = false;
-            const handoffLead = panel.id === 'wise' ? 0.3 : 0.8;
-            const handoffDuration = panel.id === 'wise' ? 150 : 400;
+            const handoffLead = panel.id === 'marbach' ? 0.3 : 0.8;
+            const handoffDuration = panel.id === 'marbach' ? 150 : 400;
 
             function checkForVideoHandoff() {
                 const activeVideo = loopVideos[activeVideoIndex];
@@ -191,8 +202,37 @@
             window.requestAnimationFrame(checkForVideoHandoff);
         });
     </script>
+
+    <script>
+        const previewDialog = document.querySelector('#project-preview');
+        const previewImage = previewDialog.querySelector('.preview-image');
+        const projectPreviews = {
+            'vinyl-cover': { src: 'assets/vinyl-cover-preview.webp', alt: 'Vinyl record and geometric album cover mockup' },
+            'georgia-poster': { src: 'assets/georgia-poster-preview.webp', alt: 'Framed Georgia type specimen poster mockup' }
+        };
+
+        document.querySelectorAll('[data-preview]').forEach(trigger => {
+            trigger.addEventListener('click', event => {
+                event.preventDefault();
+                const preview = projectPreviews[trigger.dataset.preview];
+                if (!preview) return;
+
+                if (trigger.matches('a')) {
+                    event.stopPropagation();
+                    if (sidebar.classList.contains('is-open')) closeMenu();
+                }
+
+                previewImage.src = preview.src;
+                previewImage.alt = preview.alt;
+                previewDialog.showModal();
+            });
+        });
+        previewDialog.addEventListener('click', () => previewDialog.close());
+    </script>
 </body>
 </html>
+
+
 
 
 
