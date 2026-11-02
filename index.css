@@ -622,3 +622,62 @@ button {
     }
 
 }
+
+
+/* Compact project-type labels shown over gallery cards */
+.gallery-label {
+    position: absolute;
+    z-index: 3;
+    top: 18px;
+    right: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6154em;
+    padding: 0.5385em 0.9231em;
+    border: 0.0769em solid rgb(255 255 255 / 24%);
+    border-radius: 1.2308em;
+    background: rgb(20 20 20 / 70%);
+    color: #f5f5f0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.05385em;
+    line-height: 1.2308;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transform: scale(0.9);
+    transform-origin: top right;
+    pointer-events: none;
+}
+
+.gallery-label::before {
+    width: 0.4615em;
+    height: 0.4615em;
+    flex: 0 0 0.4615em;
+    border-radius: 50%;
+    background: var(--label-accent);
+    content: "";
+}
+
+.gallery-label-case-study {
+    --label-accent: #c7d6e6;
+}
+
+.gallery-label-live-website {
+    --label-accent: #99e86e;
+}
+
+.gallery-label-project-image {
+    --label-accent: #e6e3d6;
+}
+
+@media (max-width: 500px) {
+    .gallery-label {
+        top: clamp(12px, 3.6vw, 18px);
+        right: clamp(12px, 3.6vw, 18px);
+        font-size: clamp(6.5px, calc(2.8889vw - 2.7444px), 11.7px);
+        transform: none;
+    }
+
+}
